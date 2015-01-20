@@ -121,4 +121,9 @@ namespace :sidekiq do
     invoke :'sidekiq:stop'
     invoke :'sidekiq:start'
   end
+
+  desc "Test environment"
+  task :test do
+    queue %[echo "-----> Environment: #{rails_env}"]
+  end
 end
